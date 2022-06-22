@@ -1,5 +1,8 @@
-# library(threadr)
-pipeline <- function(){
+#' função para coletar os dados do datasus automaticamente
+#' @example
+#' pipeline()
+
+pipeline <- function(pasta){
   pacotes()
   urls=c('ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/',
@@ -17,10 +20,18 @@ pipeline <- function(){
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/')
 
-
+  setwd(pasta)
 ############# COLETA AUTOMÁTICA E CONVERSÂO PARA CSV #############
 # setwd('C:\\Users\\User\\Documents\\dados\\Raw')
-
+  dir.create(paste0(pasta,'RAW'))
+  dir.create(paste0(pasta,'RAW/DBC'))
+  dir.create(paste0(pasta,'RAW/CSV'))
+  dir.create(paste0(pasta,'RAW/DBC/CNES'))
+  dir.create(paste0(pasta,'RAW/DBC/SIA'))
+  dir.create(paste0(pasta,'RAW/DBC/SIH'))
+  dir.create(paste0(pasta,'RAW/CSV/CNES'))
+  dir.create(paste0(pasta,'RAW/CSV/SIA'))
+  dir.create(paste0(pasta,'RAW/CSV/SIH'))
   for(url in urls){
     dat <- readLines(url)
     dat <- subset(dat, grepl('DF', dat, fixed = T))
@@ -28,10 +39,18 @@ pipeline <- function(){
     for(i in 1:length(dat)){
       if(!identical(dat, character(0))){
         diretorio <- caminho(url,dat[i])
-        setwd(paste0('C:/Users/User/Documents/dados/Raw/DBC/',diretorio))
+        if(!file.exists(paste0(pasta,'RAW/DBC/',diretorio))){
+           dir.create(paste0(pasta,'RAW/DBC/',diretorio))
+        }
+
+        setwd(paste0(pasta,'RAW/DBC/',diretorio))
         download.file(paste0(url,strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])]), destfile =strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])],method = 'curl')
         a <- read.dbc(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])])
-        setwd(paste0('C:/Users/User/Documents/dados/Raw/CSV/',diretorio))
+        if(!file.exists(paste0(pasta,'RAW/CSV/',diretorio))){
+          dir.create(paste0(pasta,'RAW/CSV/',diretorio))
+        }
+
+        setwd(paste0(pasta,'RAW/CSV/',diretorio))
         write.csv(a, paste0(strsplit(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])], split = '.dbc')[[1]],'.csv'))
       }
     }
