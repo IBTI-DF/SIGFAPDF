@@ -2,7 +2,7 @@
 % Please edit documentation in R/pipeline.R
 \name{pipeline}
 \alias{pipeline}
-\title{função para coletar os dados do datasus automaticamente}
+\title{pipeline}
 \usage{
 pipeline()
 }
