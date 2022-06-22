@@ -1,8 +1,8 @@
 #' função para coletar os dados do datasus automaticamente
 #' @example
-#' pipeline()
+#' pipeline(pasta, periodo)
 
-pipeline <- function(pasta){
+pipeline <- function(pasta,periodo = 0){
   pacotes()
   urls=c('ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/',
@@ -35,7 +35,8 @@ pipeline <- function(pasta){
   for(url in urls){
     dat <- readLines(url)
     dat <- subset(dat, grepl('DF', dat, fixed = T))
-    # dat<- subset(dat,grepl(format(Sys.Date(),'%m-%d-%y'), dat, fixed = T))
+    if(periodo != 0){
+      dat<- subset(dat,grepl(format(Sys.Date(),periodo), dat, fixed = T))}
     for(i in 1:length(dat)){
       if(!identical(dat, character(0))){
         diretorio <- caminho(url,dat[i])
@@ -52,7 +53,9 @@ pipeline <- function(pasta){
 
         setwd(paste0(pasta,'RAW/CSV/',diretorio))
         write.csv(a, paste0(strsplit(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])], split = '.dbc')[[1]],'.csv'))
+        # tratamento()
       }
+      else {print(paste0('Não tem dados novos na base'))}
     }
   }
 }
