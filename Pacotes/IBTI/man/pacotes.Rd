@@ -1,8 +1,11 @@
-\name{pacotes}
-\alias{pacotes}
+#' função para os pacotes necessários automaticamente
+#' @example
+#' pacotes()
+pacotes <- function(){
 
-\title{pacotes}
-
-\description{
-  Uma função que carrega os pacotes necessários para o pipeline de coleta e tratamento
+  if(!nzchar(system.file(package = 'read.dbc'))){
+    install.packages('read.dbc')
+  }
+  library(read.dbc)
 }
+
