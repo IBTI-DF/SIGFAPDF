@@ -5,5 +5,3 @@ pacotes <- function(){
   }
   library(read.dbc)
 }
-
-pacotes()
