@@ -15,7 +15,7 @@ pipeline(pasta = getwd(), periodo = 0)
 }
 
 \seealso{
-\code{\link{https://github.com/IBTI-DF/SIGFAPDF/tree/main/IBTIsus}}
+\url{https://github.com/IBTI-DF/SIGFAPDF/tree/main/IBTIsus}
 }
 
 \examples{
