@@ -4,6 +4,18 @@ O pacote *IBTIsus* para o R tem a função de fazer o download dos arquivos do D
 
 Além disso, o pacote tem a opção de armazenar os dados brutos tanto em seu formato original (.dbc) quanto em formato .csv.
 
+## Data Lake
+
+```mermaid
+graph LR
+A[Dados baixados] --> B[Pasta Raw]
+B -- .dbc --> C[Pasta DBC]
+B -- .csv --> D[Pasta CSV]
+D -- Após limpeza --> E[Pasta Curated]
+E -- Após tratamento --> F[Pasta Refined]
+
+```
+
 # Instalação
 
     > install.packages("remotes")
