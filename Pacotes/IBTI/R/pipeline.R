@@ -2,7 +2,7 @@
 #' @example
 #' pipeline(pasta, periodo)
 
-pipeline <- function(pasta,periodo = 0){
+pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0){
   pacotes()
   urls=c('ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/',
