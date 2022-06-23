@@ -1,4 +1,4 @@
-# <img src="https://github.com/IBTI-DF/Plataforma-Iot/blob/main/Aplicacao/public/Favicon-IBTI.png?raw=true" width="32" height="30"> Projeto Saúde - IBTI
+# <img src="https://github.com/IBTI-DF/SIGFAPDF/blob/main/docs/imagens/icone-ibti.png?raw=true" width="32" height="30"> Projeto Saúde - IBTI
 
 O [**Projeto Saúde**](link) é desenvolvido pelo IBTI e tem como objetivo principal implementar um ambiente de BI como serviços para apoio às atividades gerenciais da  Saúde Pública do GDF.
 
