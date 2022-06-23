@@ -7,7 +7,7 @@ Além disso, o pacote tem a opção de armazenar os dados brutos tanto em seu fo
 ## Data Lake
 
 ```mermaid
-graph LR
+graph TB
 A[Dados baixados] --> B[Pasta Raw]
 B -- .dbc --> C[Pasta DBC]
 B -- .csv --> D[Pasta CSV]
