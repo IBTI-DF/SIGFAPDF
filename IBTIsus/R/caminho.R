@@ -1,6 +1,9 @@
 #' função para definir o diretório de cada tabela do datasus automaticamente
-#' @link é o link de download da tabela
-#' @tabela é o nome da tabela que está sendo baixada
+#' @param link é o link de download da tabela
+#' @param tabela é o nome da tabela que está sendo baixada
+#' @return retorna o diretório que receberá o arquivo
+#' @example
+#' caminho(link,tabela)
 
 caminho <- function(link,tabela){
   if(grepl('SIA', link, fixed = T)){

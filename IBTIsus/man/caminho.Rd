@@ -2,7 +2,7 @@
 % Please edit documentation in R/caminho.R
 \name{caminho}
 \alias{caminho}
-\title{caminho}
+\title{função para definir o diretório de cada tabela do datasus automaticamente}
 \usage{
 caminho(link, tabela)
 }

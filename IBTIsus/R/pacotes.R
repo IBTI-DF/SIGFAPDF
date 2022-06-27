@@ -1,3 +1,6 @@
+#' função para os pacotes necessários automaticamente
+#' @example
+#' pacotes()
 pacotes <- function(){
 
   if(!nzchar(system.file(package = 'read.dbc'))){
@@ -5,3 +8,4 @@ pacotes <- function(){
   }
   library(read.dbc)
 }
+
