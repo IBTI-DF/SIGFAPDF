@@ -63,7 +63,7 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
           if(!file.exists(paste0(pasta,'DataSUS/CURATED/',diretorio))){
             dir.create(paste0(pasta,'DataSUS/CURATED/',diretorio))
           }
-          tratamento(a)
+          limpeza(a, diretorio = diretorio)
           setwd(paste0(pasta,'DataSUS/CURATED/',diretorio))
           write.csv(a, paste0(strsplit(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])], split = '.dbc')[[1]],'.csv'))
 
