@@ -19,7 +19,7 @@ E -- Após tratamento --> F[Pasta Refined]
 # Instalação
 
     > install.packages("remotes")
-    > remotes::install_github("https://github.com/IBTI-DF/SIGFAPDF/IBTIsus")
+    > remotes::install_github("IBTI-DF/SIGFAPDF/IBTIsus")
 
 
 ## Utilização
