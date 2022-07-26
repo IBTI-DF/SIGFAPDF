@@ -291,7 +291,7 @@ limpeza <- function(dados, diretorio){
       dados$ATD_HBSAG[is.na(dados$ATD_HBSAG)] <- '0000'
       dados$ATD_HBSAG <- as.factor(dados$ATD_HBSAG)
 
-      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,ATD_MAISNE,ATD_SITINI,AP_SEAPTO))
+      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,ATD_MAISNE,ATD_SITINI,ATD_SEAPTO))
     }
 
     if(grepl('AM', diretorio, fixed = T)){
