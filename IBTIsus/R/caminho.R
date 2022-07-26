@@ -32,6 +32,8 @@ caminho <- function(link,tabela){
       tabela <- 'PS'}
     if(grepl('SADDF', tabela, fixed = T)){
       tabela <- 'SAD'}
+    if(grepl('BIDF', tabela, fixed = T)){
+      tabela <- 'BI'}
   }
   else if(grepl('CNES', link, fixed = T)){
     base <- 'CNES'
