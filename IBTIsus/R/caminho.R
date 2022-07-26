@@ -8,29 +8,29 @@
 caminho <- function(link,tabela){
   if(grepl('SIA', link, fixed = T)){
     base <- 'SIA'
-    if(grepl('PA', tabela, fixed = T)){
+    if(grepl('PADF', tabela, fixed = T)){
       tabela <- 'PA'}
     if(grepl('ABDF', tabela, fixed = T)){
       tabela <- 'AB'}
-    if(grepl('ABO', tabela, fixed = T)){
+    if(grepl('ABODF', tabela, fixed = T)){
       tabela <- 'ABO' }
-    if(grepl('ACF', tabela, fixed = T)){
+    if(grepl('ACFDF', tabela, fixed = T)){
       tabela <- 'ACF'}
-    if(grepl('AD', tabela, fixed = T)){
+    if(grepl('ADDF', tabela, fixed = T)){
       tabela <- 'AD'}
-    if(grepl('AM', tabela, fixed = T)){
+    if(grepl('AMDF', tabela, fixed = T)){
       tabela <- 'AM'}
-    if(grepl('AN', tabela, fixed = T)){
+    if(grepl('ANDF', tabela, fixed = T)){
       tabela <- 'AN'}
-    if(grepl('AQ', tabela, fixed = T)){
+    if(grepl('AQDF', tabela, fixed = T)){
       tabela <- 'AQ'}
-    if(grepl('AR', tabela, fixed = T)){
+    if(grepl('ARDF', tabela, fixed = T)){
       tabela <- 'AR'}
-    if(grepl('ATD', tabela, fixed = T)){
+    if(grepl('ATDDF', tabela, fixed = T)){
       tabela <- 'ATD'}
-    if(grepl('PS', tabela, fixed = T)){
+    if(grepl('PSDF', tabela, fixed = T)){
       tabela <- 'PS'}
-    if(grepl('SAD', tabela, fixed = T)){
+    if(grepl('SADDF', tabela, fixed = T)){
       tabela <- 'SAD'}
   }
   else if(grepl('CNES', link, fixed = T)){
