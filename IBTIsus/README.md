@@ -35,7 +35,6 @@ Onde o argumento *pasta* é o diretório onde será criado o Data Lake (se não 
 
 Qualquer dúvida, pode entrar em contato nos seguintes endereços de email:
 
-> **matheus.souto@ibti.org.br** 
-> **leonardo.miranda@ibti.org.br** 
+> **matheus.souto@ibti.org.br** <br>
+> **leonardo.miranda@ibti.org.br** <br>
 > **victor.alencar@ibti.org.br** 
-> **leones.silva@ibti.org.br**
