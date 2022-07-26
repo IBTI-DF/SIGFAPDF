@@ -27,7 +27,7 @@ E -- Após tratamento --> F[Pasta Refined]
 
 ## Exemplo
 
-    library(IBTIsus)
+    library(IBTI)
     pipeline(pasta = getwd(), periodo = 0)
 Onde o argumento *pasta* é o diretório onde será criado o Data Lake (se não especificado, o Data Lake será criado no diretório vigente do R). E o argumento *periodo* é referente à data de atualização dos dados (nesse caso, ao se especificar uma data, a função só fará o download dos dados atualizados na data definida), ao não se definir uma data, será realizado o download de todos os dados do DataSUS.
 
