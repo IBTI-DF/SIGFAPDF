@@ -2,6 +2,7 @@ limpeza <- function(dados, diretorio){
 
   if(grepl('CNES', diretorio, fixed = T)){
     if(grepl('LT', diretorio, fixed = T)){
+      dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
 
       dados$DISTRSAN <- as.character(dados$DISTRSAN)
@@ -12,7 +13,10 @@ limpeza <- function(dados, diretorio){
       dados$CLIENTEL[is.na(dados$CLIENTEL)] <- '0000'
       dados$CLIENTEL <- as.factor(dados$CLIENTEL)
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO))
+      dados$COMPETEN <- as.character(dados$COMPETEN)
+      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
+
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG, DISTRADM, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TERCEIRO, CODUFMUN, TPGESTAO))
 
     }
     if(grepl('EQ', diretorio, fixed = T)){
@@ -291,7 +295,7 @@ limpeza <- function(dados, diretorio){
       dados$ATD_HBSAG[is.na(dados$ATD_HBSAG)] <- '0000'
       dados$ATD_HBSAG <- as.factor(dados$ATD_HBSAG)
 
-      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,ATD_MAISNE,ATD_SITINI,ATD_SEAPTO))
+      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,ATD_MAISNE,ATD_SITINI,AP_SEAPTO))
     }
 
     if(grepl('AM', diretorio, fixed = T)){
@@ -316,7 +320,57 @@ limpeza <- function(dados, diretorio){
       dados$CNPJ_MANT[is.na(dados$CNPJ_MANT)] <- '0000'
       dados$CNPJ_MANT <- as.factor(dados$CNPJ_MANT)
 
-      dados<-subset(dados, select = -c(NUM_PROC,CPF_AUT,CID_NOTIF,GESTOR_DT,INFEHOSP,FAEC_TP,AUD_JUST,SIS_JUST,DIAGSEC1,DIAGSEC2,DIAGSEC3,DIAGSEC4,DIAGSEC5,DIAGSEC6,DIAGSEC7,DIAGSEC8,DIAGSEC9))
+      dados$NUM_FILHOS <- as.numeric(dados$NUM_FILHOS)
+      dados$NASC <- as.Date(dados$NASC, format = '%Y%m%d')
+      dados$DT_INTER <- as.Date(dados$DT_INTER, format = '%Y%m%d')
+      dados$DT_SAIDA <- as.Date(dados$DT_SAIDA, format = '%Y%m%d')
+      dados$TEMPO_INTER <- dados$DT_SAIDA-dados$DT_INTER
+
+      dados<-subset(dados, select = -c(NUM_PROC,CPF_AUT,CID__NOTIF,GESTOR_DT,INFEHOSP,FAEC_TP,AUD_JUST,SIS_JUST,DIAGSEC1,DIAGSEC2,DIAGSEC3,DIAGSEC4,DIAGSEC5,DIAGSEC6,DIAGSEC7,DIAGSEC8,DIAGSEC9,UF_ZI, RUBRICA, GESTAO, MUNIC_MOV, NUM_PROC, CPF_AUT, ETNIA, AUD_JUST))
     }
+
+    if(grepl('SP', diretorio, fixed = T)){
+      names(dados)[5] <- 'FK_COD_CNES'
+      names(dados)[6] <- 'FK_N_AIH'
+
+      dados$SP_DTINTER <- as.Date(dados$SP_DTINTER, format = '%Y%m%d')
+      dados$SP_DTSAIDA <- as.Date(dados$SP_DTSAIDA, format = '%Y%m%d')
+      dados$TEMPO_INTER <- dados$SP_DTSAIDA-dados$SP_DTINTER
+
+      dados<-subset(dados, select = -c(SP_NUM_PR, SP_TIPO, SP_TP_ATO, SP_NF, SP_CO_FAEC, SP_GESTOR, SP_UF, SP_M_HOSP, SP_CIDSEC))
+    }
+
+    if(grepl('ER', diretorio, fixed = T)){
+      names(dados)[3] <- 'FK_COD_CNES'
+      names(dados)[4] <- 'FK_N_AIH'
+
+      dados$DT_INTER <- as.Date(dados$DT_INTER, format = '%Y%m%d')
+      dados$DT_SAIDA <- as.Date(dados$DT_SAIDA, format = '%Y%m%d')
+      dados$TEMPO_INTER <- dados$DT_SAIDA-dados$DT_INTER
+
+      dados<-subset(dados, select = -c(MUN_MOV, UF_ZI))
+    }
+
+    if(grepl('RJ', diretorio, fixed = T)){
+      names(dados)[75] <- 'FK_COD_CNES'
+      names(dados)[6] <- 'FK_N_AIH'
+
+      dados$CGC_HOSP <- as.character(dados$CGC_HOSP)
+      dados$CGC_HOSP[is.na(dados$CGC_HOSP)] <- '0000'
+      dados$CGC_HOSP <- as.factor(dados$CGC_HOSP)
+
+      dados$CNPJ_MANT <- as.character(dados$CNPJ_MANT)
+      dados$CNPJ_MANT[is.na(dados$CNPJ_MANT)] <- '0000'
+      dados$CNPJ_MANT <- as.factor(dados$CNPJ_MANT)
+
+      dados$DT_INTER <- as.Date(dados$DT_INTER, format = '%Y%m%d')
+      dados$DT_SAIDA <- as.Date(dados$DT_SAIDA, format = '%Y%m%d')
+      dados$TEMPO_INTER <- dados$DT_SAIDA-dados$DT_INTER
+
+      dados$NUM_FILHOS <- as.numeric(dados$NUM_FILHOS)
+
+      dados<-subset(dados, select = -c(NUM_PROC, CPF_AUT, CID_NOTIF, GESTOR_COD, GESTOR_DT, INFEHOSP, FAEC_TP, UF_ZI, IDENT, GESTAO, RUBRICA, MUNIC_MOV, ETNIA))
+    }
+
   }
 }
