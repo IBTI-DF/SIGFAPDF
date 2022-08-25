@@ -52,10 +52,11 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.character(dados$COMPETEN)
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG, DISTRADM, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TERCEIRO, CODUFMUN, TPGESTAO))
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,CODUFMUN,TPGESTAO))
 
     }
     if(grepl('IN', diretorio, fixed = T)){
+      dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
 
       dados$DISTRSAN <- as.character(dados$DISTRSAN)
@@ -65,8 +66,11 @@ limpeza <- function(dados, diretorio){
       dados$CLIENTEL <- as.character(dados$CLIENTEL)
       dados$CLIENTEL[is.na(dados$CLIENTEL)] <- '0000'
       dados$CLIENTEL <- as.factor(dados$CLIENTEL)
+      
+      dados$COMPETEN <- as.character(dados$COMPETEN)
+      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,COD_CEP))
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,COD_CEP,CODUFMUN,TPGESTAO,PF_PJ,TP_PREST))
 
     }
     if(grepl('RC', diretorio, fixed = T)){
