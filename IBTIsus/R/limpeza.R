@@ -92,6 +92,7 @@ limpeza <- function(dados, diretorio){
 
     }
     if(grepl('PF', diretorio, fixed = T)){
+      dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
 
       dados$DISTRSAN <- as.character(dados$DISTRSAN)
@@ -113,9 +114,12 @@ limpeza <- function(dados, diretorio){
       dados$REGISTRO <- as.character(dados$REGISTRO)
       dados$REGISTRO[is.na(dados$REGISTRO)] <- '0000'
       dados$REGISTRO <- as.factor(dados$REGISTRO)
+      
+      dados$COMPETEN <- as.character(dados$COMPETEN)
+      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO))
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,QT_CONTR,CPFUNICO,VINCUL_N))
 
     }
 
