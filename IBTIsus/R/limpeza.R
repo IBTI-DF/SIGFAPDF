@@ -1,5 +1,7 @@
 limpeza <- function(dados, diretorio){
 
+### Tabelas do CNES ###
+
   if(grepl('CNES', diretorio, fixed = T)){
     if(grepl('LT', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
@@ -219,6 +221,8 @@ limpeza <- function(dados, diretorio){
     }
   }
 
+### Tabelas do SIA ###
+
   if(grepl('SIA', diretorio, fixed = T)){
     if(grepl('PA', diretorio, fixed = T)){
       names(dados)[1] <- 'FK_COD_CNES'
@@ -338,6 +342,7 @@ limpeza <- function(dados, diretorio){
     }
   }
 
+### Tabelas do SIH ###
 
   if(grepl('SIH', diretorio, fixed = T)){
     if(grepl('RD', diretorio, fixed = T)){
