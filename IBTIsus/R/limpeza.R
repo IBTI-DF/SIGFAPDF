@@ -353,7 +353,14 @@ limpeza <- function(dados, diretorio){
       names(dados)[4] <- 'FK_COD_CNES'
       names(dados)[5]<- 'FK_N_AIH'
 
-      dados<-subset(dados, select = -c(AP_ETNIA, AP_DTOCOR))
+      dados$AP_MVM <- as.character(dados$AP_MVM)
+      dados$AP_MVM <- as.Date(paste(dados$AP_MVM, '01',sep = ''), format = '%Y%m%d')
+
+      dados<-subset(dados, select = -c(AP_ETNIA, AP_DTOCOR,AP_CONDIC,AP_GESTAO,AP_UFMUN,
+                                       AP_TPUPS,AP_TIPPRE,AP_MN_IND,AP_CNPJCPF,AP_CNPJMNT,
+                                       AP_UFNACIO,AP_MNDIF,AP_TPATEN,AP_ALTA,AP_CATEND,
+                                       AP_APACANT,AP_CIDCAS,AP_CIDSEC,AM_TRANSPL,AM_QTDTRAN,
+                                       AP_NATJUR,AP_VL_AP))
     }
   }
 
