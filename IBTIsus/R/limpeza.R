@@ -89,8 +89,12 @@ limpeza <- function(dados, diretorio){
       dados$PORTARIA <- as.character(dados$PORTARIA)
       dados$PORTARIA[is.na(dados$PORTARIA)] <- '0000'
       dados$PORTARIA <- as.factor(dados$PORTARIA)
+      
+      dados$COMPETEN <- as.character(dados$COMPETEN)
+      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO))
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,
+                                       TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,VINC_SUS,TP_PREST,CPF_CNPJ))
 
     }
     if(grepl('PF', diretorio, fixed = T)){
