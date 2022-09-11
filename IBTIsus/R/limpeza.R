@@ -3,6 +3,28 @@ limpeza <- function(dados, diretorio){
 ### Tabelas do CNES ###
 
   if(grepl('CNES', diretorio, fixed = T)){
+    if(grepl('EE', diretorio, fixed = T)){
+      dados$CNES <- as.character(dados$CNES)
+      names(dados)[1] <- 'FK_COD_CNES'
+
+      dados$DISTRSAN <- as.character(dados$DISTRSAN)
+      dados$DISTRSAN[is.na(dados$DISTRSAN)] <- '0000'
+      dados$DISTRSAN <- as.factor(dados$DISTRSAN)
+
+      dados$CLIENTEL <- as.character(dados$CLIENTEL)
+      dados$CLIENTEL[is.na(dados$CLIENTEL)] <- '0000'
+      dados$CLIENTEL <- as.factor(dados$CLIENTEL)
+
+      dados$COMPETEN <- as.character(dados$COMPETEN)
+      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
+
+      dados<-subset(dados, select = -c(MICR_REG, DISTRSAN, DISTRADM, ESFERA_A, RETENCAO, NATUREZA,
+                                      NIV_HIER, TERCEIRO, CODUFMUN, MICR_REG, DISTRADM, TPGESTAO, 
+                                      PF_PJ, ESFERA_A, RETENCAO, ATIVIDAD, NATUREZA, TP_UNID, TURNO_AT, 
+                                      NIV_HIER, TERCEIRO, VINC_SUS, TP_PREST, SGRUPHAB, CMPT_FIM, DTPORTAR,
+                                      PORTARIA, MAPORTAR))                                    
+    }
+
     if(grepl('DC', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -30,8 +52,8 @@ limpeza <- function(dados, diretorio){
                                       AP05CV07, AP06CV02, AP06CV03, AP06CV04, AP06CV05, AP06CV06, 
                                       AP06CV07, AP07CV02, AP07CV03, AP07CV04, AP07CV05, AP07CV06, 
                                       AP07CV07, ATEND_PR, GESPRG3M, GESPRG4M, GESPRG6M))
-
     }
+
     if(grepl('LT', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -48,8 +70,8 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
       dados<-subset(dados, select = -c(MICR_REG, DISTRADM, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TERCEIRO, CODUFMUN, TPGESTAO, PF_PJ, QT_CONTR))
-
     }
+
     if(grepl('EQ', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -66,8 +88,8 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG, DISTRADM, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TERCEIRO, CODUFMUN, TPGESTAO))
-
     }
+
     if(grepl('GM', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -84,8 +106,8 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,CODUFMUN,TPGESTAO))
-
     }
+
     if(grepl('IN', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -102,8 +124,8 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,COD_CEP,CODUFMUN,TPGESTAO,PF_PJ,TP_PREST))
-
     }
+
     if(grepl('RC', diretorio, fixed = T)){
       names(dados)[1] <- 'FK_COD_CNES'
 
@@ -124,8 +146,8 @@ limpeza <- function(dados, diretorio){
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,
                                       TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,VINC_SUS,TP_PREST,CPF_CNPJ))
-
     }
+
     if(grepl('PF', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -155,7 +177,6 @@ limpeza <- function(dados, diretorio){
 
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,QT_CONTR,CPFUNICO,VINCUL_N))
-
     }
 
     if(grepl('EP', diretorio, fixed = T)){
@@ -190,8 +211,8 @@ limpeza <- function(dados, diretorio){
                                       CNPJ_MAN, NIV_DEP, VINC_SUS, GESPRG1M, GESPRG2M, GESPRG5M, AP01CV02, AP01CV05, AP01CV06,
                                       AP02CV01, AP02CV02, AP02CV05, AP02CV06, AP03CV02, AP03CV05, AP03CV06, AP04CV02, AP04CV06,
                                       AP05CV02, ATEND_PR, QUILOMBO, ASSENTAD, ESCOLA, INDIGENA))
-
     }
+
     if(grepl('HB', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -217,6 +238,7 @@ limpeza <- function(dados, diretorio){
 
       dados<-subset(dados, select = -c(MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO, CODUFMUN, TPGESTAO, PF_PJ, TP_PREST))
     }
+    
     if(grepl('SR', diretorio, fixed = T)){
       names(dados)[1] <- 'FK_COD_CNES'
 
