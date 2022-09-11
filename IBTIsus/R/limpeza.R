@@ -238,7 +238,7 @@ limpeza <- function(dados, diretorio){
 
       dados<-subset(dados, select = -c(MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO, CODUFMUN, TPGESTAO, PF_PJ, TP_PREST))
     }
-    
+
     if(grepl('SR', diretorio, fixed = T)){
       names(dados)[1] <- 'FK_COD_CNES'
 
@@ -305,8 +305,45 @@ limpeza <- function(dados, diretorio){
       dados$IDADEMIN[is.na(dados$IDADEMIN)] <- '0000'
       dados$IDADEMIN <- as.factor(dados$IDADEMIN)
 
-      dados<-subset(dados, select = -c(PA_ETNIA,PA_SRV_C,PA_INE))
+      dados$IDADEMAX <- as.character(dados$IDADEMAX)
+      dados$IDADEMAX[is.na(dados$IDADEMAX)] <- '0000'
+      dados$IDADEMAX <- as.factor(dados$IDADEMAX)
 
+      dados$PA_MVM <- as.character(dados$PA_MVM)
+      dados$PA_MVM <- as.Date(paste(dados$PA_MVM, '01',sep = ''), format = '%Y%m%d')
+
+      dados<-subset(dados, select = -c(PA_ETNIA,PA_SRV_C,PA_INE, PA_GESTAO, PA_CONDIC, PA_UFMUN, PA_INCURG, 
+                                      PA_TIPPRE, PA_DIF_VAL, NU_VPA_TOT, PA_FLER, PA_VL_CF, PA_VL_CL, PA_INE))
+
+    }
+
+    if(grepl('AN', diretorio, fixed = T)){
+      names(dados)[4] <- 'FK_COD_CNES'
+      names(dados)[5]<- 'FK_N_AIH'
+
+      dados<-subset(dados, select = -c(AP_CNPJMNT, AP_DTOCOR, AP_APACANT, AP_DTSOLIC, AP_DTAUT,
+                                        AP_ETNIA, AN_DTPDR, AN_ALTURA, AN_PESO, AN_DIURES,
+                                        AN_GLICOS, AN_ACEVAS, AN_ULSOAB, AN_TRU, AN_INTFIS,
+                                        AN_CNCDO, AP_CONDIC, AP_GESTAO, AP_MNDIF, AP_TPATEN, 
+                                        AP_ENCERR, AP_CIDPRI))
+    }
+
+    if(grepl('AB', diretorio, fixed = T)){
+      names(dados)[4] <- 'FK_COD_CNES'
+      names(dados)[5]<- 'FK_N_AIH'
+
+      dados<-subset(dados, select = -c(AP_DTOCOR, AP_ETNIA, AB_PRCAIH2, AB_PRCAIH3, AB_NUMAIH2,
+                                      AB_DTCIRG2, AP_NATJUR))
+    }
+
+    if(grepl('SAD', diretorio, fixed = T)){
+      names(dados)[4] <- 'FK_COD_CNES'
+      names(dados)[5]<- 'FK_N_AIH'
+
+      dados<-subset(dados, select = -c(ETNIA, DT_MOTCOB, CIDPRI, CIDASSOC, DT_FIM, CNES_ESF,
+                                      PA_EQUIPE, PA_TP_EQP, PA_CID, INICIO, FIM, PERMANEN,
+                                      NAT_JUR, GESTAO, CONDIC, TPUPS, MN_IND, CNPJCPF, CNPJMNT,
+                                      NACION_PAC, CATEND, PA_SRV, PA_CLASS_S))
     }
 
     if(grepl('ACF', diretorio, fixed = T)){
@@ -318,7 +355,7 @@ limpeza <- function(dados, diretorio){
 
     if(grepl('PS', diretorio, fixed = T)){
       names(dados)[1] <- 'FK_COD_CNES'
-      #names(dados)[5]<- 'FK_N_AIH'
+      names(dados)[5]<- 'FK_N_AIH'
 
       dados$TP_DROGA <- as.character(dados$TP_DROGA)
       dados$TP_DROGA[is.na(dados$TP_DROGA)] <- '0000'
