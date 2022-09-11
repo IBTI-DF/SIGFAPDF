@@ -3,6 +3,35 @@ limpeza <- function(dados, diretorio){
 ### Tabelas do CNES ###
 
   if(grepl('CNES', diretorio, fixed = T)){
+    if(grepl('DC', diretorio, fixed = T)){
+      dados$CNES <- as.character(dados$CNES)
+      names(dados)[1] <- 'FK_COD_CNES'
+
+      dados$DISTRSAN <- as.character(dados$DISTRSAN)
+      dados$DISTRSAN[is.na(dados$DISTRSAN)] <- '0000'
+      dados$DISTRSAN <- as.factor(dados$DISTRSAN)
+
+      dados$CLIENTEL <- as.character(dados$CLIENTEL)
+      dados$CLIENTEL[is.na(dados$CLIENTEL)] <- '0000'
+      dados$CLIENTEL <- as.factor(dados$CLIENTEL)
+
+      dados$COMPETEN <- as.character(dados$COMPETEN)
+      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
+
+      dados<-subset(dados, select = -c(COD_IR, REGSAUDE, MICR_REG, DISTRSAN, DISTRADM, ESFERA_A,
+                                      RETENCAO, NATUREZA, NIV_HIER, CNS_NEFR, CNS_ADM, CNS_OPED,
+                                      CNS_CONC, CNS_OCLIN, CNS_MRAD, CNS_FNUC, CNS_HMTR, CNS_HMTL,
+                                      CNS_CRES, CNS_RTEC, CODUFMUN, PF_PJ, COD_IR, MICR_REG, DISTRADM, 
+                                      TPGESTAO, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TP_PREST, 
+                                      S_ALSEME, ORTV1050, ORV50150, OV150500, UN_COBAL, EQBRBAIX, 
+                                      EQBRMEDI, AP01CV03, AP01CV04, AP01CV07, AP02CV03, AP02CV04,
+                                      AP02CV07, AP03CV03, AP03CV04, AP03CV07, AP04CV03, AP04CV04, 
+                                      AP04CV07, AP05CV02, AP05CV03, AP05CV04, AP05CV05, AP05CV06, 
+                                      AP05CV07, AP06CV02, AP06CV03, AP06CV04, AP06CV05, AP06CV06, 
+                                      AP06CV07, AP07CV02, AP07CV03, AP07CV04, AP07CV05, AP07CV06, 
+                                      AP07CV07, ATEND_PR, GESPRG3M, GESPRG4M, GESPRG6M))
+
+    }
     if(grepl('LT', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
       names(dados)[1] <- 'FK_COD_CNES'
@@ -94,7 +123,7 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,
-                                       TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,VINC_SUS,TP_PREST,CPF_CNPJ))
+                                      TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,VINC_SUS,TP_PREST,CPF_CNPJ))
 
     }
     if(grepl('PF', diretorio, fixed = T)){
@@ -152,15 +181,15 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.character(dados$COMPETEN)
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,
-               TERCEIRO, CODUFMUN, TPGESTAO, TP_PREST, S_ALSEME, ORV50150, ORV50500, UN_COBAL, EQBRBAIX, 
-					     AP01CV03, AP01CV04, AP01CV07, AP02CV03, AP02CV04, AP02CV07, AP03CV03, AP03CV04, AP03CV07,
-					     AP04CV03, AP04CV04, AP04CV07, AP05CV02, AP05CV03, AP05CV04, AP05CV05, AP05CV06, AP05CV07,
-					     AP06CV02, AP06CV03, AP06CV04, AP06CV05, AP06CV06, AP06CV07, AP07CV02, AP07CV03, AP07CV04,
-					     AP07CV05, AP07CV06, AP07CV07, ATEND_PR, GESPRG3M, GESPRG4M, GESPRG6M, PF_PJ, EQBRMEDI,
-					     CNPJ_MAN, NIV_DEP, VINC_SUS, GESPRG1M, GESPRG2M, GESPRG5M, AP01CV02, AP01CV05, AP01CV06,
-					     AP02CV01, AP02CV02, AP02CV05, AP02CV06, AP03CV02, AP03CV05, AP03CV06, AP04CV02, AP04CV06,
-					     AP05CV02, ATEND_PR, QUILOMBO, ASSENTAD, ESCOLA, INDIGENA, PRONASCI, NAT_JUR))
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER, PRONASCI, NAT_JUR
+                                      TERCEIRO, CODUFMUN, TPGESTAO, TP_PREST, S_ALSEME, ORV50150, ORV50500, UN_COBAL, EQBRBAIX, 
+                                      AP01CV03, AP01CV04, AP01CV07, AP02CV03, AP02CV04, AP02CV07, AP03CV03, AP03CV04, AP03CV07,
+                                      AP04CV03, AP04CV04, AP04CV07, AP05CV02, AP05CV03, AP05CV04, AP05CV05, AP05CV06, AP05CV07,
+                                      AP06CV02, AP06CV03, AP06CV04, AP06CV05, AP06CV06, AP06CV07, AP07CV02, AP07CV03, AP07CV04,
+                                      AP07CV05, AP07CV06, AP07CV07, ATEND_PR, GESPRG3M, GESPRG4M, GESPRG6M, PF_PJ, EQBRMEDI,
+                                      CNPJ_MAN, NIV_DEP, VINC_SUS, GESPRG1M, GESPRG2M, GESPRG5M, AP01CV02, AP01CV05, AP01CV06,
+                                      AP02CV01, AP02CV02, AP02CV05, AP02CV06, AP03CV02, AP03CV05, AP03CV06, AP04CV02, AP04CV06,
+                                      AP05CV02, ATEND_PR, QUILOMBO, ASSENTAD, ESCOLA, INDIGENA))
 
     }
     if(grepl('HB', diretorio, fixed = T)){
@@ -225,14 +254,13 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
       dados<-subset(dados, select = -c(DISTRSAN,COD_IR,REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,
-                                       CO_BANCO,CO_AGENC,C_CORREN,CONTRATM,DT_PUBLE,AV_ACRED,CLASAVAL,
-                                       DT_ACRED,AV_PNASS,DT_PNASS,CODUFMUN,CODUFMUN,TP_PREST,GESPRG1M,GESPRG2M,GESPRG3M,
-                                       GESPRG4M,GESPRG5M,GESPRG6M,SERAP07T,AP01CV03,AP01CV04,AP02CV03,AP02CV04,
-                                       AP03CV03,AP03CV04,AP04CV03,AP04CV04,AP04CV07,AP05CV03,AP05CV04,
-                                       AP06CV03,AP06CV04,AP06CV05,AP06CV06,AP06CV07,AP07CV03,AP07CV04,AP07CV05,
-                                       AP07CV07,ATEND_PR,QTLEITP1,QTLEITP2,QTLEITP3,QTINST08,
-                                       QTINST14,QTINST15,QTINST16,QTINST17,QTINST18,QTINST23,QTINST25,
-                                       QTINST31,QTLEIT05,QTLEIT06,QTLEIT07,QTLEIT08,QTINST32,QTINST40))
+                                      CO_BANCO,CO_AGENC,C_CORREN,CONTRATM,DT_PUBLE,AV_ACRED,CLASAVAL,DT_ACRED,AV_PNASS, 
+                                      DT_PNASS,CODUFMUN,CODUFMUN,TP_PREST,GESPRG1M,GESPRG2M,GESPRG3M,GESPRG4M,GESPRG5M,
+                                      GESPRG6M,SERAP07T,AP01CV03,AP01CV04,AP02CV03,AP02CV04,AP03CV03,AP03CV04,AP04CV03,
+                                      AP04CV03,AP04CV04,AP04CV07,AP05CV03,AP05CV04,AP06CV03,AP06CV04,AP06CV05,AP06CV06,
+                                      AP06CV07,AP07CV03,AP07CV04,AP07CV05,AP07CV07,ATEND_PR,QTLEITP1,QTLEITP2,QTLEITP3,
+                                      QTINST08,QTINST14,QTINST15,QTINST16,QTINST17,QTINST18,QTINST23,QTINST25,QTINST31,
+                                      QTLEIT05,QTLEIT06,QTLEIT07,QTLEIT08,QTINST32,QTINST40))
     }
   }
 
@@ -311,7 +339,8 @@ limpeza <- function(dados, diretorio){
       dados$AQ_ESTADI[is.na(dados$AQ_ESTADI)] <- '0000'
       dados$AQ_ESTADI <- as.factor(dados$AQ_ESTADI)
 
-      dados<-subset(dados, select = -c(AP_ETNIA, AR_SMRD, AR_CID10,AR_TRANTE, AR_CIDINI1,AR_CIDINI2,AR_CIDINI3,AR_DTINI1,AR_DTINI2,AR_DTINI3,AR_CIDTR2,AR_CIDTR3,AR_NUMC1,AR_INIAR3,AR_FIMAR2,AR_FIMAR3,AR_NUMC2,AR_NUMC3))
+      dados<-subset(dados, select = -c(AP_ETNIA, AR_SMRD, AR_CID10,AR_TRANTE, AR_CIDINI1,AR_CIDINI2,AR_CIDINI3,AR_DTINI1,AR_DTINI2,
+                                      AR_DTINI3,AR_CIDTR2,AR_CIDTR3,AR_NUMC1,AR_INIAR3,AR_FIMAR2,AR_FIMAR3,AR_NUMC2,AR_NUMC3))
     }
 
     if(grepl('ATD', diretorio, fixed = T)){
@@ -385,7 +414,9 @@ limpeza <- function(dados, diretorio){
       dados$DT_SAIDA <- as.Date(dados$DT_SAIDA, format = '%Y%m%d')
       dados$TEMPO_INTER <- dados$DT_SAIDA-dados$DT_INTER
 
-      dados<-subset(dados, select = -c(NUM_PROC,CPF_AUT,CID__NOTIF,GESTOR_DT,INFEHOSP,FAEC_TP,AUD_JUST,SIS_JUST,DIAGSEC1,DIAGSEC2,DIAGSEC3,DIAGSEC4,DIAGSEC5,DIAGSEC6,DIAGSEC7,DIAGSEC8,DIAGSEC9,UF_ZI, RUBRICA, GESTAO, MUNIC_MOV, NUM_PROC, CPF_AUT, ETNIA, AUD_JUST))
+      dados<-subset(dados, select = -c(NUM_PROC,CPF_AUT,CID__NOTIF,GESTOR_DT,INFEHOSP,FAEC_TP,AUD_JUST,
+                                      SIS_JUST,DIAGSEC1,DIAGSEC2,DIAGSEC3,DIAGSEC4,DIAGSEC5,DIAGSEC6,DIAGSEC7, 
+                                      DIAGSEC8,DIAGSEC9,UF_ZI, RUBRICA, GESTAO, MUNIC_MOV, NUM_PROC, CPF_AUT, ETNIA, AUD_JUST))
     }
 
     if(grepl('SP', diretorio, fixed = T)){
