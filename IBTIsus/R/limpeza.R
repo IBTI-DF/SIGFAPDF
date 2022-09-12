@@ -449,8 +449,13 @@ limpeza <- function(dados, diretorio){
       dados$ATD_HBSAG <- as.character(dados$ATD_HBSAG)
       dados$ATD_HBSAG[is.na(dados$ATD_HBSAG)] <- '0000'
       dados$ATD_HBSAG <- as.factor(dados$ATD_HBSAG)
+      
+      dados$AP_MVM <- as.character(dados$AP_MVM)
+      dados$AP_MVM <- as.Date(paste(dados$AP_MVM, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,ATD_MAISNE,ATD_SITINI,AP_SEAPTO))
+      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,ATD_MAISNE,ATD_SITINI,AP_SEAPTO,
+                                       AP_CONDIC,AP_GESTAO,AP_UFMUN,AP_TIPPRE,AP_MNDIF,
+                                       AP_TPATEN,AP_ENCERR,AP_APACANT,AP_CIDPRI,AP_CIDSEC))
     }
 
     if(grepl('AM', diretorio, fixed = T)){
