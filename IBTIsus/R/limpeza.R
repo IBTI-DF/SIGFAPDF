@@ -371,8 +371,12 @@ limpeza <- function(dados, diretorio){
       dados$AP_DTOCOR <- as.character(dados$AP_DTOCOR)
       dados$AP_DTOCOR[is.na(dados$AP_DTOCOR)] <- '0000'
       dados$AP_DTOCOR <- as.factor(dados$AP_DTOCOR)
+      
+      dados$AP_MVM <- as.character(dados$AP_MVM)
+      dados$AP_MVM <- as.Date(paste(dados$AP_MVM, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(AP_ETNIA))
+      dados<-subset(dados, select = -c(AP_ETNIA,AP_CONDIC,AP_GESTAO,AP_UFMUN,
+                                       AP_TIPPRE,AP_MNDIF,AP_TPATEN,AP_APACANT))
     }
 
     if(grepl('AQ', diretorio, fixed = T)){
