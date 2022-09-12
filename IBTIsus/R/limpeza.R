@@ -397,9 +397,16 @@ limpeza <- function(dados, diretorio){
       dados$AQ_ESTADI <- as.character(dados$AR_ESTADI)
       dados$AQ_ESTADI[is.na(dados$AQ_ESTADI)] <- '0000'
       dados$AQ_ESTADI <- as.factor(dados$AQ_ESTADI)
+      
+      dados$AP_MVM <- as.character(dados$AP_MVM)
+      dados$AP_MVM <- as.Date(paste(dados$AP_MVM, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(AP_ETNIA, AR_SMRD, AR_CID10,AR_TRANTE, AR_CIDINI1,AR_CIDINI2,AR_CIDINI3,AR_DTINI1,AR_DTINI2,
-                                      AR_DTINI3,AR_CIDTR2,AR_CIDTR3,AR_NUMC1,AR_INIAR3,AR_FIMAR2,AR_FIMAR3,AR_NUMC2,AR_NUMC3))
+      dados<-subset(dados, select = -c(AP_ETNIA, AR_SMRD, AR_CID10,AR_TRANTE, AR_CIDINI1,AR_CIDINI2,AR_CIDINI3,
+                                       AR_DTINI1,AR_DTINI2,AR_DTINI3,AR_CIDTR2,AR_CIDTR3,AR_NUMC1,AR_INIAR3,
+                                       AR_FIMAR2,AR_FIMAR3,AR_NUMC2,AR_NUMC3,AP_CONDIC,AP_GESTAO,AP_UFMUN,
+                                       AP_TPUPS,AP_TIPPRE,AP_COIDADE,AP_UFNACIO,AP_MNDIF,AP_TPATEN,AP_TPAPAC,
+                                       AP_OBITO,AP_ENCERR,AP_PERMAN,AP_ALTA,AP_TRANSF,AP_CODEMI,AP_CATEND,
+                                       AP_CIDCAS,AR_TRANTE))
     }
 
     if(grepl('ATD', diretorio, fixed = T)){
