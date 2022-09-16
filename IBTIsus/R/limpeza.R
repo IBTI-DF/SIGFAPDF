@@ -471,6 +471,16 @@ limpeza <- function(dados, diretorio){
                                        AP_APACANT,AP_CIDCAS,AP_CIDSEC,AM_TRANSPL,AM_QTDTRAN,
                                        AP_NATJUR,AP_VL_AP))
     }
+    
+    if(grepl('BI', diretorio, fixed = T)){
+      names(dados)[1] <- 'FK_COD_CNES'
+      names(dados)[17]<- 'FK_N_AIH'
+
+      dados$DT_PROCESS <- as.character(dados$DT_PROCESS)
+      dados$DT_PROCESS <- as.Date(paste(dados$DT_PROCESS, '01',sep = ''), format = '%Y%m%d')
+
+      dados<-subset(dados, select = -c(GESTAO,CONDIC,UFMUN,TIPPRE))
+    }
   }
 
 ### Tabelas do SIH ###
