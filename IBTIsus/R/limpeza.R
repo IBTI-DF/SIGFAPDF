@@ -44,7 +44,7 @@ limpeza <- function(dados, diretorio){
                                       CNS_RTEC, CODUFMUN, PF_PJ, TPGESTAO, TP_PREST, S_ALSEME, ORTV1050,
                                       ORV50150, OV150500, UN_COBAL, EQBRMEDI, AP01CV03, AP01CV04,
                                       AP02CV03, AP02CV04, AP03CV03, AP03CV04,
-                                      AP03CV07, AP04CV03, AP04CV04, AP04CV07, AP05CV02, AP05CV03,
+                                      AP04CV03, AP04CV04, AP04CV07, AP05CV02, AP05CV03,
                                       AP05CV04, AP05CV05, AP05CV06, AP05CV07, AP06CV02, AP06CV03,
                                       AP06CV04, AP06CV05, AP06CV06, AP06CV07, AP07CV02, AP07CV03,
                                       AP07CV04, AP07CV05, AP07CV06, AP07CV07, ATEND_PR, GESPRG3M,
