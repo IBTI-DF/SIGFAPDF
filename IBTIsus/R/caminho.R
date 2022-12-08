@@ -37,8 +37,8 @@ caminho <- function(link,tabela){
   # }
   if(grepl('CNES', link, fixed = T)){
     base <- 'CNES'
-    if(grepl('DC', tabela, fixed = T)){
-      tabela <- 'DC'}
+    # if(grepl('DC', tabela, fixed = T)){
+    #   tabela <- 'DC'}
     if(grepl('EE', tabela, fixed = T)){
       tabela <- 'EE'}
     if(grepl('EF', tabela, fixed = T)){

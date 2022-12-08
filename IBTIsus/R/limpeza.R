@@ -23,33 +23,33 @@ limpeza <- function(dados, diretorio){
                                       TP_PREST, SGRUPHAB))                                    
     }
 
-    if(grepl('DC', diretorio, fixed = T)){
-      dados$CNES <- as.character(dados$CNES)
-      names(dados)[1] <- 'FK_COD_CNES'
+    # if(grepl('DC', diretorio, fixed = T)){
+    #   dados$CNES <- as.character(dados$CNES)
+    #   names(dados)[1] <- 'FK_COD_CNES'
 
-      dados$DISTRSAN <- as.character(dados$DISTRSAN)
-      dados$DISTRSAN[is.na(dados$DISTRSAN)] <- '0000'
-      dados$DISTRSAN <- as.factor(dados$DISTRSAN)
+    #   dados$DISTRSAN <- as.character(dados$DISTRSAN)
+    #   dados$DISTRSAN[is.na(dados$DISTRSAN)] <- '0000'
+    #   dados$DISTRSAN <- as.factor(dados$DISTRSAN)
 
-      dados$CLIENTEL <- as.character(dados$CLIENTEL)
-      dados$CLIENTEL[is.na(dados$CLIENTEL)] <- '0000'
-      dados$CLIENTEL <- as.factor(dados$CLIENTEL)
+    #   dados$CLIENTEL <- as.character(dados$CLIENTEL)
+    #   dados$CLIENTEL[is.na(dados$CLIENTEL)] <- '0000'
+    #   dados$CLIENTEL <- as.factor(dados$CLIENTEL)
 
-      dados$COMPETEN <- as.character(dados$COMPETEN)
-      dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
+    #   dados$COMPETEN <- as.character(dados$COMPETEN)
+    #   dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(COD_IR, REGSAUDE, MICR_REG, DISTRADM, ESFERA_A, RETENCAO,
-                                      NATUREZA, NIV_HIER, CNS_NEFR, CNS_ADM, CNS_OPED, CNS_CONC,
-                                      CNS_OCLIN, CNS_MRAD, CNS_FNUC, CNS_HMTR, CNS_HMTL, CNS_CRES,
-                                      CNS_RTEC, CODUFMUN, PF_PJ, TPGESTAO, TP_PREST, S_ALSEME, ORTV1050,
-                                      ORV50150, OV150500, UN_COBAL, EQBRMEDI, AP01CV03, AP01CV04,
-                                      AP02CV03, AP02CV04, AP03CV03, AP03CV04,
-                                      AP04CV03, AP04CV04, AP05CV02, AP05CV03,
-                                      AP05CV04, AP05CV05, AP05CV06, AP06CV02, AP06CV03,
-                                      AP06CV04, AP06CV05, AP06CV06,  AP07CV02, AP07CV03,
-                                      AP07CV04, AP07CV05, AP07CV06,  ATEND_PR, GESPRG3M,
-                                      GESPRG4M, GESPRG6M))
-    }
+    #   dados<-subset(dados, select = -c(COD_IR, REGSAUDE, MICR_REG, DISTRADM, ESFERA_A, RETENCAO,
+    #                                   NATUREZA, NIV_HIER, CNS_NEFR, CNS_ADM, CNS_OPED, CNS_CONC,
+    #                                   CNS_OCLIN, CNS_MRAD, CNS_FNUC, CNS_HMTR, CNS_HMTL, CNS_CRES,
+    #                                   CNS_RTEC, CODUFMUN, PF_PJ, TPGESTAO, TP_PREST, S_ALSEME, ORTV1050,
+    #                                   ORV50150, OV150500, UN_COBAL, EQBRMEDI, AP01CV03, AP01CV04,
+    #                                   AP02CV03, AP02CV04, AP03CV03, AP03CV04,
+    #                                   AP04CV03, AP04CV04, AP05CV02, AP05CV03,
+    #                                   AP05CV04, AP05CV05, AP05CV06, AP06CV02, AP06CV03,
+    #                                   AP06CV04, AP06CV05, AP06CV06,  AP07CV02, AP07CV03,
+    #                                   AP07CV04, AP07CV05, AP07CV06,  ATEND_PR, GESPRG3M,
+    #                                   GESPRG4M, GESPRG6M))
+    # }
 
     if(grepl('LT', diretorio, fixed = T)){
       dados$CNES <- as.character(dados$CNES)
