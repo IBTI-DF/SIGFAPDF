@@ -52,7 +52,7 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
 
         setwd(paste0(pasta,'DataSUS/RAW/DBC/',diretorio))
         download.file(paste0(url,strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])]), destfile =strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])],method = 'curl')
-        dados_brutos <- try(read.dbc(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])]))
+        dados_brutos <- tryCatch({read.dbc(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])])}, error=function(e){cat("ERROR :",conditionMessage(e), "\n")})
         if(!file.exists(paste0(pasta,'DataSUS/RAW/CSV/',diretorio))){
           dir.create(paste0(pasta,'DataSUS/RAW/CSV/',diretorio))
         }
