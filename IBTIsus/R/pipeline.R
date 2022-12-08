@@ -9,7 +9,7 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EE/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EF/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EP/',
-       'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EQ/',
+      #  'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EQ/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/GM/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/HB/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/IN/',
