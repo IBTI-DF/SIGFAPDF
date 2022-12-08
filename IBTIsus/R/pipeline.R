@@ -5,7 +5,7 @@
 pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
   pacotes()
   urls=c(
-       'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/',
+      #  'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EE/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EF/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EP/',
