@@ -66,7 +66,7 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.character(dados$COMPETEN)
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(MICR_REG, DISTRADM, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TERCEIRO, CODUFMUN, TPGESTAO, PF_PJ, QT_CONTR))
+      dados<-subset(dados, select = -c(MICR_REG, DISTRADM, ESFERA_A, RETENCAO, NATUREZA, NIV_HIER, TERCEIRO, CODUFMUN, TPGESTAO, PF_PJ))
     }
 
     # if(grepl('EQ', diretorio, fixed = T)){
@@ -174,7 +174,7 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,QT_CONTR,CPFUNICO,VINCUL_N))
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER,TERCEIRO,CODUFMUN,TPGESTAO,PF_PJ,CPFUNICO,VINCUL_N))
     }
 
     if(grepl('EP', diretorio, fixed = T)){
