@@ -370,15 +370,11 @@ limpeza <- function(dados, diretorio){
     if(grepl('AD', diretorio, fixed = T)){
       names(dados)[4] <- 'FK_COD_CNES'
       names(dados)[5]<- 'FK_N_AIH'
-
-      dados$AP_DTOCOR <- as.character(dados$AP_DTOCOR)
-      dados$AP_DTOCOR[is.na(dados$AP_DTOCOR)] <- '0000'
-      dados$AP_DTOCOR <- as.factor(dados$AP_DTOCOR)
       
       dados$AP_MVM <- as.character(dados$AP_MVM)
       dados$AP_MVM <- as.Date(paste(dados$AP_MVM, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(AP_ETNIA,AP_CONDIC,AP_GESTAO,AP_UFMUN,
+      dados<-subset(dados, select = -c(AP_DTOCOR,AP_ETNIA,AP_CONDIC,AP_GESTAO,AP_UFMUN,
                                        AP_TIPPRE,AP_MNDIF,AP_TPATEN,AP_APACANT))
     }
 
