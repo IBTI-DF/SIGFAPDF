@@ -206,7 +206,7 @@ limpeza <- function(dados, diretorio){
                                       AP04CV03, AP04CV04, AP05CV02, AP05CV03, AP05CV04, AP05CV05, 
                                       AP05CV06, AP06CV02, AP06CV03, AP06CV04, AP06CV05, AP06CV06, 
                                       AP07CV02, AP07CV03, AP07CV04, AP07CV05, AP07CV06, ATEND_PR, 
-                                      GESPRG3M, GESPRG4M, GESPRG6M, PF_PJ, EQBRMEDI, CNPJ_MAN, 
+                                      GESPRG3M, GESPRG4M, GESPRG6M, PF_PJ, CNPJ_MAN, 
                                       NIV_DEP, VINC_SUS, GESPRG1M, GESPRG2M, GESPRG5M, AP01CV02, 
                                       AP01CV05, AP01CV06, AP02CV01, AP02CV02, AP02CV05, AP02CV06, 
                                       AP03CV02, AP03CV05, AP03CV06, AP04CV02, AP04CV06,
