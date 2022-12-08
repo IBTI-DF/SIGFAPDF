@@ -4,7 +4,7 @@
 
 pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
   pacotes()
-  urls=c('ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/',
+  urls=c(
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/DC/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EE/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/EF/',
@@ -18,6 +18,7 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/RC/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/SR/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/CNES/200508_/Dados/ST/',
+      #  'ftp://ftp.datasus.gov.br/dissemin/publicos/SIASUS/200801_/Dados/',
        'ftp://ftp.datasus.gov.br/dissemin/publicos/SIHSUS/200801_/Dados/')
 
   setwd(pasta)
@@ -29,13 +30,13 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
   dir.create(paste0(pasta,'DataSUS/RAW/DBC'))
   dir.create(paste0(pasta,'DataSUS/RAW/CSV'))
   dir.create(paste0(pasta,'DataSUS/RAW/DBC/CNES'))
-  dir.create(paste0(pasta,'DataSUS/RAW/DBC/SIA'))
+  # dir.create(paste0(pasta,'DataSUS/RAW/DBC/SIA'))
   dir.create(paste0(pasta,'DataSUS/RAW/DBC/SIH'))
   dir.create(paste0(pasta,'DataSUS/RAW/CSV/CNES'))
-  dir.create(paste0(pasta,'DataSUS/RAW/CSV/SIA'))
+  # dir.create(paste0(pasta,'DataSUS/RAW/CSV/SIA'))
   dir.create(paste0(pasta,'DataSUS/RAW/CSV/SIH'))
   dir.create(paste0(pasta,'DataSUS/CURATED/SIH'))
-  dir.create(paste0(pasta,'DataSUS/CURATED/SIA'))
+  # dir.create(paste0(pasta,'DataSUS/CURATED/SIA'))
   dir.create(paste0(pasta,'DataSUS/CURATED/CNES'))
   for(url in urls){
     dat <- readLines(url)

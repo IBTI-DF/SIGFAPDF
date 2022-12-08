@@ -6,36 +6,36 @@
 #' caminho(link,tabela)
 
 caminho <- function(link,tabela){
-  if(grepl('SIA', link, fixed = T)){
-    base <- 'SIA'
-    if(grepl('PADF', tabela, fixed = T)){
-      tabela <- 'PA'}
-    if(grepl('ABDF', tabela, fixed = T)){
-      tabela <- 'AB'}
-    if(grepl('ABODF', tabela, fixed = T)){
-      tabela <- 'ABO' }
-    if(grepl('ACFDF', tabela, fixed = T)){
-      tabela <- 'ACF'}
-    if(grepl('ADDF', tabela, fixed = T)){
-      tabela <- 'AD'}
-    if(grepl('AMDF', tabela, fixed = T)){
-      tabela <- 'AM'}
-    if(grepl('ANDF', tabela, fixed = T)){
-      tabela <- 'AN'}
-    if(grepl('AQDF', tabela, fixed = T)){
-      tabela <- 'AQ'}
-    if(grepl('ARDF', tabela, fixed = T)){
-      tabela <- 'AR'}
-    if(grepl('ATDDF', tabela, fixed = T)){
-      tabela <- 'ATD'}
-    if(grepl('PSDF', tabela, fixed = T)){
-      tabela <- 'PS'}
-    if(grepl('SADDF', tabela, fixed = T)){
-      tabela <- 'SAD'}
-    if(grepl('BIDF', tabela, fixed = T)){
-      tabela <- 'BI'}
-  }
-  else if(grepl('CNES', link, fixed = T)){
+  # if(grepl('SIA', link, fixed = T)){
+  #   base <- 'SIA'
+  #   if(grepl('PADF', tabela, fixed = T)){
+  #     tabela <- 'PA'}
+  #   if(grepl('ABDF', tabela, fixed = T)){
+  #     tabela <- 'AB'}
+  #   if(grepl('ABODF', tabela, fixed = T)){
+  #     tabela <- 'ABO' }
+  #   if(grepl('ACFDF', tabela, fixed = T)){
+  #     tabela <- 'ACF'}
+  #   if(grepl('ADDF', tabela, fixed = T)){
+  #     tabela <- 'AD'}
+  #   if(grepl('AMDF', tabela, fixed = T)){
+  #     tabela <- 'AM'}
+  #   if(grepl('ANDF', tabela, fixed = T)){
+  #     tabela <- 'AN'}
+  #   if(grepl('AQDF', tabela, fixed = T)){
+  #     tabela <- 'AQ'}
+  #   if(grepl('ARDF', tabela, fixed = T)){
+  #     tabela <- 'AR'}
+  #   if(grepl('ATDDF', tabela, fixed = T)){
+  #     tabela <- 'ATD'}
+  #   if(grepl('PSDF', tabela, fixed = T)){
+  #     tabela <- 'PS'}
+  #   if(grepl('SADDF', tabela, fixed = T)){
+  #     tabela <- 'SAD'}
+  #   if(grepl('BIDF', tabela, fixed = T)){
+  #     tabela <- 'BI'}
+  # }
+  if(grepl('CNES', link, fixed = T)){
     base <- 'CNES'
     if(grepl('DC', tabela, fixed = T)){
       tabela <- 'DC'}
