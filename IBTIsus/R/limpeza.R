@@ -199,7 +199,7 @@ limpeza <- function(dados, diretorio){
       dados$COMPETEN <- as.character(dados$COMPETEN)
       dados$COMPETEN <- as.Date(paste(dados$COMPETEN, '01',sep = ''), format = '%Y%m%d')
 
-      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER, PRONASCI, NAT_JUR,
+      dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER, PRONASCI,
                                       TERCEIRO, CODUFMUN, TPGESTAO, TP_PREST, S_ALSEME, ORV50150, ORV50500, UN_COBAL, EQBRBAIX, 
                                       AP01CV03, AP01CV04, AP02CV03, AP02CV04, AP03CV03, AP03CV04, 
                                       AP04CV03, AP04CV04, AP05CV02, AP05CV03, AP05CV04, AP05CV05, AP05CV06, 
