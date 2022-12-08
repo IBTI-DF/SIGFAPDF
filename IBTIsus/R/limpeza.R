@@ -43,7 +43,7 @@ limpeza <- function(dados, diretorio){
                                       CNS_OCLIN, CNS_MRAD, CNS_FNUC, CNS_HMTR, CNS_HMTL, CNS_CRES,
                                       CNS_RTEC, CODUFMUN, PF_PJ, TPGESTAO, TP_PREST, S_ALSEME, ORTV1050,
                                       ORV50150, OV150500, UN_COBAL, EQBRMEDI, AP01CV03, AP01CV04,
-                                      AP02CV03, AP02CV04, AP02CV07, AP03CV03, AP03CV04,
+                                      AP02CV03, AP02CV04, AP03CV03, AP03CV04,
                                       AP03CV07, AP04CV03, AP04CV04, AP04CV07, AP05CV02, AP05CV03,
                                       AP05CV04, AP05CV05, AP05CV06, AP05CV07, AP06CV02, AP06CV03,
                                       AP06CV04, AP06CV05, AP06CV06, AP06CV07, AP07CV02, AP07CV03,
@@ -201,7 +201,7 @@ limpeza <- function(dados, diretorio){
 
       dados<-subset(dados, select = -c(REGSAUDE, MICR_REG,DISTRADM,ESFERA_A,RETENCAO,NATUREZA,NIV_HIER, PRONASCI, NAT_JUR,
                                       TERCEIRO, CODUFMUN, TPGESTAO, TP_PREST, S_ALSEME, ORV50150, ORV50500, UN_COBAL, EQBRBAIX, 
-                                      AP01CV03, AP01CV04, AP02CV03, AP02CV04, AP02CV07, AP03CV03, AP03CV04, AP03CV07,
+                                      AP01CV03, AP01CV04, AP02CV03, AP02CV04, AP03CV03, AP03CV04, AP03CV07,
                                       AP04CV03, AP04CV04, AP04CV07, AP05CV02, AP05CV03, AP05CV04, AP05CV05, AP05CV06, AP05CV07,
                                       AP06CV02, AP06CV03, AP06CV04, AP06CV05, AP06CV06, AP06CV07, AP07CV02, AP07CV03, AP07CV04,
                                       AP07CV05, AP07CV06, AP07CV07, ATEND_PR, GESPRG3M, GESPRG4M, GESPRG6M, PF_PJ, EQBRMEDI,
