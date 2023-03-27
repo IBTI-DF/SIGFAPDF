@@ -27,6 +27,7 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
   dir.create(paste0(pasta,'DataSUS'))
   dir.create(paste0(pasta,'DataSUS/RAW'))
   dir.create(paste0(pasta,'DataSUS/CURATED'))
+  dir.create(paste0(pasta,'DataSUS/REFINED'))
   dir.create(paste0(pasta,'DataSUS/RAW/DBC'))
   dir.create(paste0(pasta,'DataSUS/RAW/CSV'))
   dir.create(paste0(pasta,'DataSUS/RAW/DBC/CNES'))
@@ -38,6 +39,9 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
   dir.create(paste0(pasta,'DataSUS/CURATED/SIH'))
   # dir.create(paste0(pasta,'DataSUS/CURATED/SIA'))
   dir.create(paste0(pasta,'DataSUS/CURATED/CNES'))
+  dir.create(paste0(pasta,'DataSUS/REFINED/SIH'))
+  dir.create(paste0(pasta,'DataSUS/REFINED/SIA'))
+  dir.create(paste0(pasta,'DataSUS/REFINED/CNES'))
   for(url in urls){
     dat <- readLines(url)
     dat <- subset(dat, grepl('DF', dat, fixed = T))
@@ -53,19 +57,19 @@ pipeline <- function(pasta = paste0(getwd(),'/'),periodo = 0, tratamento = T){
         setwd(paste0(pasta,'DataSUS/RAW/DBC/',diretorio))
         download.file(paste0(url,strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])]), destfile =strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])],method = 'curl')
         dados_brutos <- (read.dbc(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])]))
-        if(!file.exists(paste0(pasta,'DataSUS/RAW/CSV/',diretorio))){
-          dir.create(paste0(pasta,'DataSUS/RAW/CSV/',diretorio))
+        if(!file.exists(paste0(pasta,'DataSUS/CURATED/CSV/',diretorio))){
+          dir.create(paste0(pasta,'DataSUS/CURATED/CSV/',diretorio))
         }
 
-        setwd(paste0(pasta,'DataSUS/RAW/CSV/',diretorio))
+        setwd(paste0(pasta,'DataSUS/CURATED/CSV/',diretorio))
         write.csv(dados_brutos, paste0(strsplit(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])], split = '.dbc')[[1]],'.csv'))
 
         if(tratamento == T){
-          if(!file.exists(paste0(pasta,'DataSUS/CURATED/',diretorio))){
-            dir.create(paste0(pasta,'DataSUS/CURATED/',diretorio))
+          if(!file.exists(paste0(pasta,'DataSUS/REFINED/',diretorio))){
+            dir.create(paste0(pasta,'DataSUS/REFINED/',diretorio))
           }
           dados_limpos <- limpeza(dados_brutos, diretorio = diretorio)
-          setwd(paste0(pasta,'DataSUS/CURATED/',diretorio))
+          setwd(paste0(pasta,'DataSUS/REFINED/',diretorio))
           write.csv(dados_limpos, paste0(strsplit(strsplit(dat[i], split = ' ')[[1]][length(strsplit(dat[i], split = ' ')[[1]])], split = '.dbc')[[1]],'.csv'))
 
 
