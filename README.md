@@ -33,14 +33,4 @@ end
 
 ## Documentação
 
-A documentação completa do projeto pode ser lida clicando [aqui](link).
-
-## Guia do Usuário
-
-Aprenda a visualizar os dados públicos do DataSUS seguindo o [guia do usuário](link), onde se encontra o tutorial de utilização do sistema.
-
-## Funcionalidades do projeto
-[**Filtragem dos dados:**](link)
-<img src="">
-[**Modelos de Previsão:**](link)
-<img src="">
+A Documentação Técnica e Guia do Usuárioi do projeto podem ser acessados clicando [aqui](link).
