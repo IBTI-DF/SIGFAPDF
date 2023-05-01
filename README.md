@@ -8,7 +8,7 @@ O projeto conta com um pacote na linguagem R chamado IBTIsus, onde é possível 
 ## Fluxograma
 ```mermaid
 flowchart LR
-H[(DataSUS)] --> A(Dados baixados) --> B{Pasta Raw}
+H[(DataSUS)] --> A(Dados baixados) --> B(Pasta Raw)
 B -- .dbc --> C(Pasta DBC)
 B -- .csv --> D(Pasta CSV)
 D -- Após limpeza --> E(Pasta Curated)
