@@ -8,7 +8,7 @@ Além disso, o pacote tem a opção de armazenar os dados brutos tanto em seu fo
 
 ```mermaid
 graph TB
-A[Dados baixados] --> B{Pasta Raw}
+A[Dados baixados] --> B(Pasta Raw)
 B -- .dbc --> C[Pasta DBC]
 B -- .csv --> D[Pasta CSV]
 D -- Após limpeza --> E[Pasta Curated]
