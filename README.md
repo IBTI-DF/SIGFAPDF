@@ -9,15 +9,13 @@ O projeto conta com um pacote na linguagem R chamado IBTIsus, onde é possível 
 ```mermaid
 flowchart LR
 H[(DataSUS)] --> A(Dados baixados) --> B{Pasta Raw}
-L[(ANS)] --> A
 B -- .dbc --> C(Pasta DBC)
 B -- .csv --> D(Pasta CSV)
 D -- Após limpeza --> E(Pasta Curated)
-E -- Após tratamento --> F(Pasta Refined) --> G[(Banco de Dados IBTI)] --> I(Análise Preditiva) --> J(Modelo Preditivo) --> K(Visualização)
+E -- Após tratamento --> F(Pasta Refined) --> G[(Banco de Dados)] --> K(Visualização)
 G --> K
 subgraph Bases de Dados
 H
-L
 end
 subgraph Data Lake
 B
@@ -28,9 +26,7 @@ E
 F
 end
 subgraph Ambiente BI
-I
 G
-J
 K
 end
 ```
