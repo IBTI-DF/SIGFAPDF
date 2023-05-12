@@ -33,4 +33,4 @@ end
 
 ## Documentação
 
-A Documentação Técnica e Guia do Usuárioi do projeto podem ser acessados clicando [aqui]([link](https://github.com/IBTI-DF/SIGFAPDF/blob/main/Documenta%C3%A7%C3%A3o%20T%C3%A9cnica%20-%20Projeto%20Sa%C3%BAde.pdf).
+A Documentação Técnica e Guia do Usuárioi do projeto podem ser acessados clicando [aqui][link](https://github.com/IBTI-DF/SIGFAPDF/blob/main/Documenta%C3%A7%C3%A3o%20T%C3%A9cnica%20-%20Projeto%20Sa%C3%BAde.pdf).
